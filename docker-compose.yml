@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  django_app:
+    build: .
+    env_file:
+      - 'env/.env'
+    command: sh -c "python manage.py makemigrations &&
+      python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000 --insecure"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
