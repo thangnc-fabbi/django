@@ -10,7 +10,7 @@ stages:
 before_script:
   - docker info
   - docker-compose --version
-  - docker login -u congthang1597 -p CTn20152015@
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
 
 build image:
   stage: build_images
