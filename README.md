@@ -11,7 +11,7 @@ $ pip install -r requirements.txt
 $ python manage migate
 $ python manage runserver
 ```
-##Testing
+## Testing
 
 ```
 $ pytest
