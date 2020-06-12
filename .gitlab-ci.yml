@@ -1,0 +1,20 @@
+# .gitlab-ci.yml
+image: tmaier/docker-compose:latest
+
+services:
+  - docker:dind
+
+stages:
+  - build_images
+
+before_script:
+  - docker info
+  - docker-compose --version
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+build image:
+  stage: build_images
+  script:
+    - docker-compose down
+    - docker-compose build
+    - docker-compose push
